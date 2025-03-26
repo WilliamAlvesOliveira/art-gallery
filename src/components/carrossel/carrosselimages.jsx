@@ -39,11 +39,9 @@ const ImageCarousel = () => {
                 <button className="iconleft" onClick={prevSlide}>◀</button>
                 <div className='carousel-slice'
                  onMouseEnter={() => {
-                    console.log("Mouse entrou, pausando...");
                     setIsPaused(true);
                 }}
                 onMouseLeave={() => {
-                    console.log("Mouse saiu, retomando...");
                     setIsPaused(false);
                 }}>
                     <img src={images[currentIndex]} alt={`Slide ${currentIndex + 1}`} className="carousel-image" />
