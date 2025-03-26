@@ -1,0 +1,21 @@
+main{
+    background-color: #F7CD00;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 100px;
+  }
+  
+  #sobre{
+    background-color: #e6e6e6;
+    width: 100%;
+  }  
+  
+  #sobre > p{
+    font-family: Arial, Helvetica, sans-serif;
+    margin: auto;
+    padding: 10px;
+    text-align: center;
+    line-height: 20px;
+    max-width: 1000px;
+  }

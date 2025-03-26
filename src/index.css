@@ -9,45 +9,52 @@
 }
 
 @font-face {
-    font-family: ART;
-    src: url(./public/fonts/RubikPuddles-Regular.ttf)format('truetype');
-    font-weight: 400;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: Nome;
-    src: url(./public/fonts/LoveLight-Regular.ttf)format('truetype');
-    font-weight: 400;
-    font-style: normal;
-}
-
-@font-face {
-  font-family: Masonry;
-  src: url(./publikc/fonts/Hanalei-Regular.ttf)format('truetype');
+  font-family: ART;
+  src: url(./assets/fonts/RubikPuddles-Regular.ttf)format('truetype');
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
-  font-family: Handwriting;
-  src: url(./publikc/fonts/Caveat-VariableFont_wght.ttf)format('truetype');
+  font-family: Nome;
+  src: url(./assets/fonts/LoveLight-Regular.ttf)format('truetype');
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
-  font-family: Medieval;
-  src: url(./publikc/fonts/MedievalSharp-Regular.ttf) format('truetype');
+  font-family: carrosel;
+  src: url(./assets/fonts/Coiny-Regular.ttf)format('truetype');
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
-  font-family: Graffiti;
-  src: url(./publikc/fonts/Nosifer-Regular.ttf);
-  font-weight: 400;
-  font-style: normal;
+font-family: Masonry;
+src: url(./assets/fonts/Hanalei-Regular.ttf)format('truetype');
+font-weight: 400;
+font-style: normal;
+}
+
+@font-face {
+font-family: Handwriting;
+src: url(./assets/fonts/Caveat-VariableFont_wght.ttf)format('truetype');
+font-weight: 400;
+font-style: normal;
+}
+
+@font-face {
+font-family: Medieval;
+src: url(./assets/fonts/MedievalSharp-Regular.ttf) format('truetype');
+font-weight: 400;
+font-style: normal;
+}
+
+@font-face {
+font-family: Graffiti;
+src: url(./assets/fonts/Nosifer-Regular.ttf);
+font-weight: 400;
+font-style: normal;
 }
 
 header{

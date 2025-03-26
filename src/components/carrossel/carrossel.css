@@ -1,0 +1,147 @@
+#carrossel{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h2{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+
+  font-family: carrosel, sans-serif;
+  color: white;
+}
+
+.carrossel-text span {
+  display: inline-block;
+}
+  
+.letra-branca {
+  color: #FF1200;
+  animation: desceSobe 6s linear infinite;
+}
+
+.letra-azul {
+  color: #2575B4;
+  animation: subeDesce 6s linear infinite;
+}
+
+.carrossel {
+  width: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.carousel-display{
+  background-image:linear-gradient(#9B0B00,#FF1200, #9B0B00) ;
+  display: grid;
+  width: 100vw;
+  max-width: 1000px;
+  grid-template-columns: 1fr 5fr 1fr;
+  border-radius: 20px;
+}
+
+.carousel-slice{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 800px;
+  border-radius: 10px;
+}
+
+.carousel-image{
+  width: 100%;
+  max-width: 300px;
+  border-radius: 10px;
+}
+
+button{
+  background-color: rgba(0, 0, 0, 0.700);
+  height: 100%;
+  width: 100%;
+  max-width: 50px;
+  color: white;
+  justify-self: right;
+}
+
+.iconleft{
+  justify-self: left;
+  border-radius: 20px 0px 0px 20px;
+}
+
+.iconright{
+  border-radius: 0px 20px 20px 0px;
+}
+
+.indicators{
+  display: flex;
+  justify-content: center;
+}
+
+.dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  margin: 5px;
+  background: gray;
+  border: 1px solid white;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.dot.active {
+    background: black;
+}
+  
+@keyframes subeDesce{
+  0% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(-5px);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  75% {
+    transform: translateY(5px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+
+@keyframes desceSobe {
+  0% {
+    transform: translateY(0);
+  }
+  25% {
+    transform: translateY(5px);
+  }
+  50% {
+    transform: translateY(0);
+  }
+  75% {
+    transform: translateY(-5px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 350px){
+  body p{
+    font-size: 8vw;
+  }
+  h2{
+    gap: 5vw;
+    font-size: 8vw;
+  }
+}
