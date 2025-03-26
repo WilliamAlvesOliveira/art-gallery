@@ -1,0 +1,27 @@
+.nav-bar {
+    position: sticky;
+    top: 0px;
+    background-image: radial-gradient(circle, #2575B4,#082342);
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    z-index: 2;
+}
+
+.nav-button {
+    text-align: center;
+    color: white;
+    cursor: pointer;
+}
+
+.nav-icon {
+    width: 25px;
+    height: 25px;
+}
+
+.nav-text {
+    display: block;
+    margin-top: 1px;
+}
