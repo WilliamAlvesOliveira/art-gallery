@@ -1,0 +1,22 @@
+#parallax{
+    position: relative;
+    width: 100%;
+    max-width: 900px;
+    aspect-ratio: 16/9;
+    overflow: hidden;
+    background-image: url(./skull.png);
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    border-radius: 10px;
+}
+
+#parallax > h2{
+    font-size: 3em;
+}
+
+@media(max-width: 500px){
+    #parallax > h2{
+        font-size: 8vw;
+    }
+}

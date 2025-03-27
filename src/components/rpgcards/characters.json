@@ -1,0 +1,62 @@
+[   
+    {
+        "titulo": "Arqueiro",
+        "name":"Archer",
+        "text": "Ágil e preciso, o Arqueiro domina o combate à distância, atingindo alvos com mortal eficácia. Com reflexos rápidos e conexão com a natureza, ele rastreia inimigos, usa o terreno a seu favor e pode contar com aliados animais."
+    },
+    {
+        "titulo": "Guerreiro",
+        "name":"Warrior",
+        "text": " Forte e implacável, o Guerreiro domina o combate corpo a corpo com armas pesadas e armadura resistente. Sua presença intimida inimigos, inspira aliados e o torna a linha de frente em qualquer batalha."
+    },
+    {
+        "titulo":"Bárbaro",
+        "name":"Barbarian",
+        "text": "O bárbaro é um guerreiro feroz, guiado por uma fúria primal que amplifica sua força bruta e resistência. Especialista em combate corpo a corpo, ele desferre ataques devastadores enquanto suporta danos extraordinários, tornando-se uma figura indomável no campo de batalha."
+    },
+    {
+        "titulo": "Mago",
+        "name":"Mage",
+        "text": "O mago é um especialista em artes arcanas, manipulando elementos e lançando feitiços poderosos. Apesar de sua fragilidade física, sua sabedoria e preparo fazem dele essencial, capaz de mudar o rumo de batalhas com encantamentos estratégicos."
+    },
+    {
+        "titulo":"Ladrão",
+        "name":"Thief",
+        "text": "O ladrão é um especialista em furtividade e artimanhas, usando agilidade e inteligência para superar desafios. Com ataques rápidos e precisos, ele explora pontos fracos dos inimigos, sendo indispensável em missões que demandam sutileza e estratégia."
+    },
+    {
+        "titulo": "Bruxa",
+        "name":"Witch",
+        "text": "A bruxa é uma figura misteriosa e poderosa, conectada ao ocultismo e às forças sobrenaturais. Com magias sombrias e rituais antigos, ela manipula, amaldiçoa ou protege, sendo essencial em aventuras de misticismo e intriga."
+    },
+    {
+        "titulo":"Curandeira",
+        "name":"Healer",
+        "text": "A curandeira é a protetora da vida, especializada em cura e suporte. Essencial para a sobrevivência do grupo, ela restaura vitalidade, remove condições negativas e oferece proteção, equilibrando resistência e recuperação em batalhas difíceis."
+    },
+    {
+        "titulo":"Necromante",
+        "name":"Necromant",
+        "text": "O necromante domina as artes sombrias, invocando mortos-vivos e lançando feitiços macabros para causar dano, enfraquecer inimigos e reanimar aliados. Temido e estratégico, ele é essencial em batalhas que demandam um poder sombrio."
+    },
+    {
+        "titulo":"Anão",
+        "name":"Dwarf",
+        "text": "O anão é um guerreiro resistente e leal, mestre em armas e armaduras pesadas, bem como em mineração e forja. Determinado e corajoso, ele é um aliado confiável, com uma tenacidade admirável em qualquer aventura."
+    },
+    {
+        "titulo":"Cavaleiro",
+        "name":"Knight",
+        "text": "O cavaleiro é símbolo de honra e bravura, mestre em combate e defensor leal de seus aliados. Com armadura reluzente e valores de justiça, ele lidera batalhas com coragem e estratégia."
+    },
+    {
+        "titulo":"Ninja",
+        "name":"Ninja",
+        "text":"O Ninja é um guerreiro ágil e letal, mestre em furtividade e espionagem. Utilizando técnicas de ninjutsu, ataques precisos e golpes surpresa, ele é uma figura temível e indispensável em missões perigosas."
+    },
+    {
+        "titulo":"Druida",
+        "name":"Druid",
+        "text":"Guardião da natureza e mestre da magia elemental, o Druida invoca os poderes dos elementos e se transforma em animais para lutar ou proteger seus aliados. Equilibrando sabedoria e força, ele é tanto um curandeiro quanto um guerreiro feroz na defesa de seu mundo."
+    }
+]

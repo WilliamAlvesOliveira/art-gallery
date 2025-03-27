@@ -3,7 +3,6 @@ import Masonry from "react-masonry-css";
 import "./masonry.css";
 import Title from "./masonrytext";
 
-// Função assíncrona para importar todas as imagens da pasta "masonryimages"
 const importAllImages = async () => {
   const images = import.meta.glob("./masonryimages/*.{png,jpg,jpeg}");
 
@@ -11,8 +10,8 @@ const importAllImages = async () => {
     Object.entries(images).map(async ([path, importer]) => {
       const module = await importer();
       return {
-        src: module.default, // Obtém a URL da imagem corretamente
-        alt: path.split("/").pop().replace(/\.(png|jpg|jpeg)$/, ""), // Nome da imagem sem extensão
+        src: module.default,
+        alt: path.split("/").pop().replace(/\.(png|jpg|jpeg)$/, ""),
       };
     })
   );
@@ -45,7 +44,6 @@ const MasonryGallery = () => {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [handleKeyDown]);
 
-  // Carregar imagens ao montar o componente
   useEffect(() => {
     importAllImages().then(setImages);
   }, []);
@@ -53,6 +51,7 @@ const MasonryGallery = () => {
   return (
     <section id="brasil">
       <Title />
+      <p>Que tal fazermos um breve tour pela fauna e flora do Brasil através de um Masonry Layout?</p>
       <Masonry
         breakpointCols={breakpointColumns}
         className="masonry-container"

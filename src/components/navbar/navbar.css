@@ -2,18 +2,60 @@
     position: sticky;
     top: 0px;
     background-image: radial-gradient(circle, #2575B4,#082342);
-    height: 50px;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 10px;
     z-index: 2;
 }
 
+.btn-container{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    max-width: 80%;
+    padding: 6px;
+    overflow-x: scroll;
+}
+
+.nav-arrow:first-child{
+    transform: scaleX(-1)
+}
+
+.nav-arrow{
+    background-color: rgba(0, 0, 0, 0);
+    border: 0;
+}
+
+.clicked{
+    border-bottom: 1px solid white;
+    border-radius: 30px;
+}
+
+.btn-container::-webkit-scrollbar{
+    display: none;
+}
+
 .nav-button {
+    width: 70px;
     text-align: center;
     color: white;
     cursor: pointer;
+}
+
+.nav-button:hover{
+    transform: scale(1.2);
+}
+
+.nav-button:hover{
+    transform: scale(1.2);
+    box-shadow: inset -15px -15px 5px #08234213;
+    border-bottom-right-radius: 5px;
+}
+
+.nav-button:focus{
+    transform: scale(1.2);
+    box-shadow: inset -15px -15px 5px #08234213;
+    border-bottom-right-radius: 5px;
 }
 
 .nav-icon {
