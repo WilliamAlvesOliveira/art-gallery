@@ -5,6 +5,7 @@ import Carrossel from './components/carrossel/carrosel'
 import MasonryGsllery from './components/masonry/masonry'
 import RPG from './components/rpgcards/rpg'
 import Parallax from './components/prallax/parallax';
+import Music from './components/music-verses/music';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
         <MasonryGsllery />
         <RPG />
         <Parallax />
+        <Music />
       </main>
     </div>
   );

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import './rpg.css';
 import Characters from './characters.json';
 
-// Importa todas as imagens dinamicamente
 const importAllImages = async () => {
     const images = import.meta.glob("./rpgimages/*.{png,jpg,jpeg}");
 
