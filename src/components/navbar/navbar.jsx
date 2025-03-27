@@ -10,7 +10,7 @@ const navItems = [
     { icon: carouselIcon, text: 'Carrossel', target: 'carrossel' },
     { icon: bricks, text: 'Masonry', target: 'brasil' },
     { icon: swords, text: 'RPG', target: 'RPG' },
-    { icon: music, text: 'Versos', target: 'music-cards' }
+    { icon: music, text: 'Versos', target: 'brasil' }
 ];
 
 
