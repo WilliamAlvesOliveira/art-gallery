@@ -2,7 +2,7 @@
   "name": "art-gallery",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://williamalvesoliveira.github.io/art-gallery",
+  "homepage": "https://williamalvesoliveira.github.io/art-gallery/",
   "type": "module",
   "scripts": {
     "dev": "vite",
