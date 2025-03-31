@@ -1,0 +1,66 @@
+#fufy{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: radial-gradient(pink, pink);
+    width: 100%;
+    padding: 30px;
+    perspective: 1000px;
+    overflow: hidden;
+}
+
+.container-3d{
+    position: relative;
+
+    background-image: url('./fufyimages/pink-castle.png');
+    background-size: cover;
+
+    width: 96%;
+    max-width: 1000px;
+    aspect-ratio: 16/9;
+    border-radius: 20px;
+
+    transform-style: preserve-3d;
+    transition: transform 1s ease-out
+}
+
+.camada{
+    position: absolute;
+
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-template-rows: repeat(7, 1fr);
+
+    width: 100%;
+    height: 100%;
+
+    transition: transform 1s ease-in-out;
+}
+
+.glitter{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    pointer-events: none;
+}
+
+.camada img{
+    width: 80%;
+    border-radius: 50%;
+    border: 2px solid pink;
+    outline: 1px solid white;
+}
+
+
+.back{
+    transform: translateZ(30px);
+}
+
+.back > img{
+    box-shadow: -2px 2px 4px rgba(216, 112, 147, 0.663);
+}
+
+.mid{
+    transform: translateZ(60px);
+}
