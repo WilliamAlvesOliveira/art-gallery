@@ -1,66 +1,75 @@
 #fufy{
     display: flex;
-    justify-content: center;
     align-items: center;
-    background-image: radial-gradient(pink, pink);
+    justify-content: center;
+
     width: 100%;
-    padding: 30px;
-    perspective: 1000px;
-    overflow: hidden;
+    height: var(--screen);
+    background-image: radial-gradient(#FBBDB9 50%, #BF3B86 );
 }
 
-.container-3d{
-    position: relative;
-
-    background-image: url('./fufyimages/pink-castle.png');
-    background-size: cover;
-
-    width: 96%;
+.component3d{
+    display: grid;
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+    grid-template-rows: repeat(5, minmax(0, 1fr));
+    gap: 5px;
+    
+    width: 100%;
     max-width: 1000px;
     aspect-ratio: 16/9;
-    border-radius: 20px;
+    border-radius: 15px;
+    padding: 30px;
 
+    background-image: url('./pink-castle.png');
+    background-size: cover;
+
+    perspective: 1000px;
     transform-style: preserve-3d;
-    transition: transform 1s ease-out
 }
 
-.camada{
-    position: absolute;
-
-    display: grid;
-    grid-template-columns: repeat(7, 1fr);
-    grid-template-rows: repeat(7, 1fr);
-
-    width: 100%;
+.component3d img{
+    margin: auto;
     height: 100%;
-
-    transition: transform 1s ease-in-out;
-}
-
-.glitter{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border-radius: 20px;
-    pointer-events: none;
-}
-
-.camada img{
-    width: 80%;
     border-radius: 50%;
     border: 2px solid pink;
     outline: 1px solid white;
 }
 
-
-.back{
-    transform: translateZ(30px);
+.layer {
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.3s ease;
+}
+  
+/* Fundo (leve profundidade) */
+.background {
+    transform: translateZ(0px);
+}
+  
+/* Camada intermediária */
+.middle {
+    transform: translateZ(0px);
+}
+  
+/* Camada principal */
+.foreground {
+    transform: translateZ(0px);
 }
 
-.back > img{
-    box-shadow: -2px 2px 4px rgba(216, 112, 147, 0.663);
+/* Quando a div 3D está ativa, as imagens saltam */
+.component3d .layer.active {
+    transition: transform 0.3s ease;
 }
 
-.mid{
-    transform: translateZ(60px);
+.component3d .background.active {
+    transform: scale(1.2) translateZ(10px);
 }
+
+.component3d .middle.active {
+    transform: scale(1.4) translateZ(40px);
+}
+
+.component3d .foreground.active {
+    transform: scale(1.6) translateZ(70px);
+}
+

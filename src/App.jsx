@@ -6,7 +6,8 @@ import MasonryGsllery from './components/masonry/masonry'
 import RPG from './components/rpgcards/rpg'
 import Parallax from './components/prallax/parallax';
 import Music from './components/music-verses/music';
-import FUfy from './components/fufy/fufy'
+import Fufy from './components/fufy/fufy'
+
 
 
 
@@ -23,7 +24,7 @@ function App() {
         <RPG />
         <Parallax />
         <Music />
-        <FUfy />
+        <Fufy />
       </main>
     </div>
   );
