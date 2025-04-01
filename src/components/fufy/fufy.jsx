@@ -184,6 +184,7 @@ const Fufy = () => {
 
   const handleActivate = () => {
     setIsActive(true);
+    document.body.style.overflow = "hidden";
     if (particlesRef.current.length > 0) {
       particlesRef.current.forEach((p, i) => {
         if (i % 5 === 0) p.reset();
@@ -193,6 +194,7 @@ const Fufy = () => {
 
   const handleDeactivate = () => {
     setIsActive(false);
+    document.body.style.overflow = "auto";
     setRotation({ x: 0, y: 0 });
   };
 
@@ -208,8 +210,8 @@ const Fufy = () => {
     const relX = x - centerX;
     const relY = y - centerY;
     
-    const rotateY = (relX / centerX) * 20;
-    const rotateX = (relY / centerY) * -20;
+    const rotateY = (relX / centerX) * 10;
+    const rotateX = (relY / centerY) * -10;
     
     setRotation({ x: rotateX, y: rotateY });
 
@@ -231,6 +233,7 @@ const Fufy = () => {
 
   return (
     <section id="fufy">
+      <h2>Magic 3D World</h2>
       <div 
         ref={containerRef}
         className="component3d"
