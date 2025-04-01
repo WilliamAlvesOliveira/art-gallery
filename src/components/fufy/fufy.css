@@ -3,7 +3,7 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-    height: var(--screen);
+    padding: 30px 0px;
     background-image: radial-gradient(#FBBDB9 50%, #BF3B86);
     perspective: 1200px;
 }
@@ -27,7 +27,8 @@
 }
 
 .component3d img{
-    height: 80%;
+    height: 100%;
+    max-height: 250px;
     border-radius: 50%;
     border: 2px solid #BF3B86;
     outline: 1px solid white;
@@ -84,4 +85,10 @@
     transform: translateZ(100px) scale(1.5);
     filter: drop-shadow(15px 15px 25px rgba(251, 189, 185, 0.8));
     transition: transform 0.7s cubic-bezier(0.25, 0.1, 0.25, 1) 0.2s, filter 0.5s ease 0.2s;
+}
+
+@media (max-width: 800px){
+    .component3d img{
+        height: 200%;
+    }
 }
