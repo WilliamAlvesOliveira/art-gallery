@@ -1,33 +1,36 @@
-#fufy{
+#fufy {
     display: flex;
     align-items: center;
     justify-content: center;
-
     width: 100%;
     height: var(--screen);
-    background-image: radial-gradient(#FBBDB9 50%, #BF3B86 );
+    background-image: radial-gradient(#FBBDB9 50%, #BF3B86);
+    perspective: 1200px;
 }
 
-.component3d{
+.component3d {
     position: relative;
     display: grid;
     grid-template-columns: repeat(5, minmax(0, 1fr));
     grid-template-rows: repeat(5, minmax(0, 1fr));
     gap: 5px;
-    
     width: 100%;
     max-width: 1000px;
     aspect-ratio: 16/9;
     border-radius: 15px;
     padding: 30px;
-
     background-image: url('./pink-castle.png');
     background-size: cover;
-
-    perspective: 1000px;
     transform-style: preserve-3d;
     transition: transform 0.5s ease-out;
-    overflow: hidden;
+    overflow: visible;
+}
+
+.component3d img{
+    height: 80%;
+    border-radius: 50%;
+    border: 2px solid #BF3B86;
+    outline: 1px solid white;
 }
 
 .glitter-canvas {
@@ -39,50 +42,46 @@
     pointer-events: none;
     transition: opacity 0.3s ease;
     z-index: 10;
-  }
+}
 
-.component3d img{
-    margin: auto;
-    height: 100%;
-    border-radius: 50%;
-    border: 2px solid #FBBDB9;
-    outline: 1px solid white;
+
+.component3d > * {
+    transform-style: preserve-3d;
 }
 
 .layer {
     background-size: cover;
     background-position: center;
-    transition: transform 0.3s ease;
-}
-  
-.background {
-    transform: translateZ(0px);
-}
-  
-.middle {
-    transform: translateZ(0px);
-}
-  
-.foreground {
-    transform: translateZ(0px);
+    will-change: transform;
+    backface-visibility: hidden;
 }
 
-.component3d .layer.active {
-    transition: transform 0.8s ease;
+.background {
+    z-index: 1;
+}
+
+.middle {
+    z-index: 2;
+}
+
+.foreground {
+    z-index: 3;
 }
 
 .component3d .background.active {
-    transform: scale(1.2) translateZ(10px);
-    filter: drop-shadow(5px 5px 5px #fbbdb97e);
-  }
-  
-  .component3d .middle.active {
-    transform: scale(1.4) translateZ(40px);
-    filter: drop-shadow(10px 10px 10px #fbbdb97e);
-  }
-  
-  .component3d .foreground.active {
-    transform: scale(1.6) translateZ(70px);
-    filter: drop-shadow(15px 15px 15px #fbbdb97e);
-  }
+    transform: translateZ(20px) scale(1.1);
+    filter: drop-shadow(5px 5px 15px rgba(251, 189, 185, 0.6));
+    transition: transform 0.7s cubic-bezier(0.25, 0.1, 0.25, 1), filter 0.5s ease;
+}
 
+.component3d .middle.active {
+    transform: translateZ(60px) scale(1.3);
+    filter: drop-shadow(10px 10px 20px rgba(251, 189, 185, 0.7));
+    transition: transform 0.7s cubic-bezier(0.25, 0.1, 0.25, 1) 0.1s, filter 0.5s ease 0.1s;
+}
+
+.component3d .foreground.active {
+    transform: translateZ(100px) scale(1.5);
+    filter: drop-shadow(15px 15px 25px rgba(251, 189, 185, 0.8));
+    transition: transform 0.7s cubic-bezier(0.25, 0.1, 0.25, 1) 0.2s, filter 0.5s ease 0.2s;
+}
