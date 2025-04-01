@@ -31,7 +31,7 @@
     margin: auto;
     height: 100%;
     border-radius: 50%;
-    border: 2px solid pink;
+    border: 2px solid #FBBDB9;
     outline: 1px solid white;
 }
 
@@ -58,18 +58,21 @@
 
 /* Quando a div 3D está ativa, as imagens saltam */
 .component3d .layer.active {
-    transition: transform 0.3s ease;
+    transition: transform 0.8s ease;
 }
 
 .component3d .background.active {
     transform: scale(1.2) translateZ(10px);
-}
-
-.component3d .middle.active {
+    filter: drop-shadow(5px 5px 5px #fbbdb97e);
+  }
+  
+  .component3d .middle.active {
     transform: scale(1.4) translateZ(40px);
-}
-
-.component3d .foreground.active {
+    filter: drop-shadow(10px 10px 10px #fbbdb97e);
+  }
+  
+  .component3d .foreground.active {
     transform: scale(1.6) translateZ(70px);
-}
+    filter: drop-shadow(15px 15px 15px #fbbdb97e);
+  }
 
