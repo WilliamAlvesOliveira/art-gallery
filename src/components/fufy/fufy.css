@@ -9,6 +9,7 @@
 }
 
 .component3d{
+    position: relative;
     display: grid;
     grid-template-columns: repeat(5, minmax(0, 1fr));
     grid-template-rows: repeat(5, minmax(0, 1fr));
@@ -25,7 +26,20 @@
 
     perspective: 1000px;
     transform-style: preserve-3d;
+    transition: transform 0.5s ease-out;
+    overflow: hidden;
 }
+
+.glitter-canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+    z-index: 10;
+  }
 
 .component3d img{
     margin: auto;
@@ -41,22 +55,18 @@
     transition: transform 0.3s ease;
 }
   
-/* Fundo (leve profundidade) */
 .background {
     transform: translateZ(0px);
 }
   
-/* Camada intermediária */
 .middle {
     transform: translateZ(0px);
 }
   
-/* Camada principal */
 .foreground {
     transform: translateZ(0px);
 }
 
-/* Quando a div 3D está ativa, as imagens saltam */
 .component3d .layer.active {
     transition: transform 0.8s ease;
 }
