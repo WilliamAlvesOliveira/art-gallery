@@ -5,9 +5,10 @@
     justify-content: center;
     gap: 15px;
     width: 100%;
-    padding: 30px 20px;
-    background-image: radial-gradient(#FBBDB9 50%, #BF3B86);
+    padding: 30px 5px;
+    background-image: linear-gradient(#BF3B86, #FBBDB9, #BF3B86);
     perspective: 1000px;
+    min-height: var(--screen)
 }
 
 #fufy > h2{
@@ -46,7 +47,7 @@
 
 .component3d img{
     height: 100%;
-    min-height: 70px;
+    min-height: 50px;
     max-height: 250px;
     border-radius: 50%;
     border: 2px solid #BF3B86;
