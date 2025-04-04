@@ -100,6 +100,28 @@ header{
   box-sizing: border-box;
 }
 
+footer{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+}
+
+footer > p{
+  color: white;
+}
+
+footer .redes{
+  display: flex;
+  gap: 10px;
+}
+
+.redes > a{
+  color: white;
+  padding: 10px;
+}
+
 @media (max-width: 360px){
   .title{
     font-family: Art, sans-serif;
