@@ -13,8 +13,8 @@ const navItems = [
     { icon: bricks, text: 'Masonry', target: 'brasil' },
     { icon: swords, text: 'RPG', target: 'RPG' },
     { icon: music, text: 'Versos', target: 'music-cards' },
-    { icon: castle, text: '3D', target: 'fufy'},
-    { icon: guitar, text: 'Rockers', target: 'playerSelect'}
+    { icon: guitar, text: 'Rockers', target: 'playerSelect'},
+    { icon: castle, text: '3D', target: 'fufy'}
 ];
 
 
