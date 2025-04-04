@@ -127,6 +127,17 @@ const Fufy = () => {
   const animationRef = useRef(null);
   const [rotation, setRotation] = useState({ x: 0, y: 0 });
 
+  const setActive = () => {
+    setIsActive(true);
+    document.body.style.overflow = "hidden";
+  };
+
+  const setInactive = () => {
+    setIsActive(false);
+    setRotation({ x: 0, y: 0 });
+    document.body.style.overflow = "auto";
+  };
+
   useEffect(() => {
     importImages().then((urls) => {
       setImageUrls(shuffleArray(urls));
@@ -178,12 +189,9 @@ const Fufy = () => {
 
   const handlePointerDown = (e) => {
     if (containerRef.current.contains(e.target)) {
-      setIsActive(true);
-      document.body.style.overflow = "hidden";
-    } else {
-      setIsActive(false);
-      setRotation({ x: 0, y: 0 });
-      document.body.style.overflow = "auto";
+      if (!isActive) setActive();
+    } else if (isActive) {
+      setInactive();
     }
   };
 
@@ -207,15 +215,10 @@ const Fufy = () => {
 
   useEffect(() => {
     const handleTouchStart = (e) => {
-      const isInside = containerRef.current.contains(e.target);
-      if (isInside) {
-        e.preventDefault();
-        setIsActive(true);
-        document.body.style.overflow = "hidden";
-      } else {
-        setIsActive(false);
-        setRotation({ x: 0, y: 0 });
-        document.body.style.overflow = "auto";
+      if (containerRef.current.contains(e.target)) {
+        if (!isActive) setActive();
+      } else if (isActive) {
+        setInactive();
       }
     };
 
@@ -242,14 +245,12 @@ const Fufy = () => {
     document.addEventListener("pointermove", handlePointerMove);
     document.addEventListener("touchstart", handleTouchStart, { passive: false });
     document.addEventListener("touchmove", handleTouchMove, { passive: false });
-    document.addEventListener("touchend", handleTouchEnd);
 
     return () => {
       document.removeEventListener("pointerdown", handlePointerDown);
       document.removeEventListener("pointermove", handlePointerMove);
       document.removeEventListener("touchstart", handleTouchStart);
       document.removeEventListener("touchmove", handleTouchMove);
-      document.removeEventListener("touchend", handleTouchEnd);
     };
   }, [isActive]);
 
