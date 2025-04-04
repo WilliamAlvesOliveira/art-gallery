@@ -57,6 +57,20 @@ font-weight: 400;
 font-style: normal;
 }
 
+@font-face {
+  font-family: Metal;
+  src: url(./assets/fonts/Break-gothic.ttf);
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: Metalfont;
+  src: url(./assets/fonts/MetalMania-Regular.ttf);
+  font-weight: 400;
+  font-style: normal;
+}
+
 header{
   background-color: black;
   border-radius: 20px 20px 0px 0px;

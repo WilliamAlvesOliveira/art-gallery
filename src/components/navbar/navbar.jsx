@@ -5,12 +5,16 @@ import carouselIcon from './icons/carousel-icon.png';
 import bricks from './icons/brick.png';
 import swords from './icons/swords.png';
 import music from './icons/music.png';
+import castle from './icons/castle.png';
+import guitar from './icons/electric-guitar.png';
 
 const navItems = [
     { icon: carouselIcon, text: 'Carrossel', target: 'carrossel' },
     { icon: bricks, text: 'Masonry', target: 'brasil' },
     { icon: swords, text: 'RPG', target: 'RPG' },
-    { icon: music, text: 'Versos', target: 'music-cards' }
+    { icon: music, text: 'Versos', target: 'music-cards' },
+    { icon: castle, text: '3D', target: 'fufy'},
+    { icon: guitar, text: 'Rockers', target: 'playerSelect'}
 ];
 
 

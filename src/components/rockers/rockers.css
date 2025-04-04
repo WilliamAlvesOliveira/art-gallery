@@ -1,0 +1,66 @@
+#playerSelect {
+    margin: auto;
+    width: 100%;
+    max-width: 1000px;
+    background-color: black;
+    padding: 20px ;
+}
+
+.rocker-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    aspect-ratio: 16/9;
+}
+
+.rocker-container> h1 {
+    font-family: Metal, 'Times New Roman', Times, serif;
+    font-size: 3.5em;
+    text-align: center;
+    color: white;
+    padding-bottom: 15px;
+}
+
+.rockers {
+    height: 100%;
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: 1fr;
+    gap: 2%;
+}
+
+.rocker {
+    overflow: hidden;
+    width: 100%;
+    display: grid;
+    grid-template-rows: 90% 10%;
+    transition: all 0.3s ease;
+}
+
+.rocker > img {
+    align-self: end;
+    justify-self: center;
+    object-fit: contain;
+    height: 80%;
+    overflow: hidden;
+}
+
+.rocker > h2 {
+    font-family: Metalfont;
+    text-align: center;
+    color: white;
+}
+
+.rocker.focus {
+    grid-column: span 2;
+    border: 2px solid white;
+    border-radius: 10px;
+}
+
+@media(max-width:900px) {
+    .rocker > h2 {
+        font-size: 2vw;
+    }
+}
