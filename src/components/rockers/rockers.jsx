@@ -24,7 +24,6 @@ const importAllImages = async () => {
     return imageList;
 };
 
-// Simula harmônico artificial
 function criarHarmonico(audioContext) {
     const oscillator = audioContext.createOscillator();
     const gainNode = audioContext.createGain();
@@ -58,7 +57,6 @@ function criarHarmonico(audioContext) {
     oscillator.stop(audioContext.currentTime + 1);
 }
 
-// Pisca o personagem
 const blinkEffect = (index, audioContext) => {
     const element = document.getElementById(rockersData[index].id);
     if (!element) return;
@@ -83,7 +81,7 @@ const blinkEffect = (index, audioContext) => {
 
 const Rockers = () => {
     const [images, setImages] = useState([]);
-    const [focusedIndex, setFocusedIndex] = useState(2); // Vocalista (índice 2) começa com foco
+    const [focusedIndex, setFocusedIndex] = useState(2);
     const audioContextRef = useRef(null);
 
     useEffect(() => {
@@ -95,7 +93,6 @@ const Rockers = () => {
         fetchImages();
     }, []);
 
-    // Navegação por teclado
     useEffect(() => {
         const handleKeyDown = (event) => {
             if (focusedIndex === null) return;
@@ -112,12 +109,11 @@ const Rockers = () => {
         return () => document.removeEventListener("keydown", handleKeyDown);
     }, [focusedIndex]);
 
-    // Evento unificado para clique ou toque
     const handlePointerDown = (index) => {
         if (focusedIndex === index) {
-            blinkEffect(index, audioContextRef.current); // Já está com foco
+            blinkEffect(index, audioContextRef.current);
         } else {
-            setFocusedIndex(index); // Só foca
+            setFocusedIndex(index);
         }
     };
 

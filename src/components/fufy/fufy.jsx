@@ -139,7 +139,7 @@ const Fufy = () => {
 
   useEffect(() => {
     const canvas = canvasRef.current;
-    const ctx = canvas.getContext('2d');
+    const ctx = canvas.getContext("2d");
     const container = containerRef.current;
 
     const resizeCanvas = () => {
@@ -155,12 +155,12 @@ const Fufy = () => {
     };
 
     resizeCanvas();
-    window.addEventListener('resize', resizeCanvas);
+    window.addEventListener("resize", resizeCanvas);
 
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       if (isActive) {
-        particlesRef.current.forEach(p => {
+        particlesRef.current.forEach((p) => {
           p.update();
           p.draw();
         });
@@ -171,7 +171,7 @@ const Fufy = () => {
     animationRef.current = requestAnimationFrame(animate);
 
     return () => {
-      window.removeEventListener('resize', resizeCanvas);
+      window.removeEventListener("resize", resizeCanvas);
       cancelAnimationFrame(animationRef.current);
     };
   }, [isActive]);
@@ -207,7 +207,9 @@ const Fufy = () => {
 
   useEffect(() => {
     const handleTouchStart = (e) => {
-      if (containerRef.current.contains(e.target)) {
+      const isInside = containerRef.current.contains(e.target);
+      if (isInside) {
+        e.preventDefault();
         setIsActive(true);
         document.body.style.overflow = "hidden";
       } else {
@@ -219,7 +221,6 @@ const Fufy = () => {
 
     const handleTouchMove = (e) => {
       if (!isActive || !containerRef.current) return;
-
       const touch = e.touches[0];
       const rect = containerRef.current.getBoundingClientRect();
       const x = touch.clientX - rect.left;
@@ -234,19 +235,13 @@ const Fufy = () => {
       const rotateX = (relY / centerY) * -10;
 
       setRotation({ x: rotateX, y: rotateY });
-    };
-
-    const handleTouchEnd = () => {
-      // Aqui você pode desligar o efeito ao soltar o toque, se quiser:
-      // setIsActive(false);
-      // setRotation({ x: 0, y: 0 });
-      // document.body.style.overflow = "auto";
+      e.preventDefault();
     };
 
     document.addEventListener("pointerdown", handlePointerDown);
     document.addEventListener("pointermove", handlePointerMove);
-    document.addEventListener("touchstart", handleTouchStart);
-    document.addEventListener("touchmove", handleTouchMove);
+    document.addEventListener("touchstart", handleTouchStart, { passive: false });
+    document.addEventListener("touchmove", handleTouchMove, { passive: false });
     document.addEventListener("touchend", handleTouchEnd);
 
     return () => {
@@ -267,7 +262,7 @@ const Fufy = () => {
         className="component3d"
         style={{
           transform: `perspective(1000px) rotateX(${rotation.x}deg) rotateY(${rotation.y}deg)`,
-          transition: isActive ? 'transform 0.1s ease-out' : 'transform 0.5s ease-out'
+          transition: isActive ? "transform 0.1s ease-out" : "transform 0.5s ease-out",
         }}
       >
         {imageUrls.slice(0, 7).map((url, index) => {
@@ -292,7 +287,7 @@ const Fufy = () => {
               className={`${layerClass} ${isActive ? "active" : ""}`}
               style={{
                 gridRow: position.row,
-                gridColumn: position.col
+                gridColumn: position.col,
               }}
             />
           );
