@@ -7,8 +7,7 @@
     width: 100%;
     padding: 30px 20px;
     background-image: radial-gradient(#FBBDB9 50%, #BF3B86);
-    perspective: 2500px;
-    overflow: hidden;
+    perspective: 1000px;
 }
 
 #fufy > h2{
@@ -16,8 +15,12 @@
     padding: 2px 15px;
     border: 1px solid white;
     border-radius: 1000px;
-    transform: translateZ(150px);
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.63);
+}
+
+#fufy > p{
+    color: white;
+    font-weight: bold;
 }
 
 .component3d {
@@ -38,6 +41,7 @@
     transform-style: preserve-3d;
     transition: transform 0.5s ease-out;
     overflow: visible;
+    cursor: pointer;
 }
 
 .component3d img{

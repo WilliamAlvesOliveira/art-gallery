@@ -85,7 +85,7 @@ class GlitterParticle {
 
     this.ctx.beginPath();
     this.ctx.moveTo(cx, cy - outerRadius);
-    
+
     for (let i = 0; i < spikes; i++) {
       x = cx + Math.cos(rot) * outerRadius;
       y = cy + Math.sin(rot) * outerRadius;
@@ -97,7 +97,7 @@ class GlitterParticle {
       this.ctx.lineTo(x, y);
       rot += step;
     }
-    
+
     this.ctx.lineTo(cx, cy - outerRadius);
     this.ctx.closePath();
     this.ctx.fill();
@@ -123,9 +123,9 @@ const Fufy = () => {
 
   const containerRef = useRef(null);
   const canvasRef = useRef(null);
-  const [rotation, setRotation] = useState({ x: 0, y: 0 });
   const particlesRef = useRef([]);
   const animationRef = useRef(null);
+  const [rotation, setRotation] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
     importImages().then((urls) => {
@@ -133,26 +133,22 @@ const Fufy = () => {
     });
 
     return () => {
-      if (animationRef.current) {
-        cancelAnimationFrame(animationRef.current);
-      }
+      if (animationRef.current) cancelAnimationFrame(animationRef.current);
     };
   }, []);
 
   useEffect(() => {
-    if (!canvasRef.current || !containerRef.current) return;
-
     const canvas = canvasRef.current;
     const ctx = canvas.getContext('2d');
     const container = containerRef.current;
-    
+
     const resizeCanvas = () => {
       const rect = container.getBoundingClientRect();
       canvas.width = rect.width;
       canvas.height = rect.height;
-      
+
       if (particlesRef.current.length === 0) {
-        particlesRef.current = Array.from({ length: 50 }, () => 
+        particlesRef.current = Array.from({ length: 50 }, () =>
           new GlitterParticle(ctx, canvas.width, canvas.height)
         );
       }
@@ -163,14 +159,12 @@ const Fufy = () => {
 
     const animate = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
-      
       if (isActive) {
-        particlesRef.current.forEach(particle => {
-          particle.update();
-          particle.draw();
+        particlesRef.current.forEach(p => {
+          p.update();
+          p.draw();
         });
       }
-
       animationRef.current = requestAnimationFrame(animate);
     };
 
@@ -182,67 +176,95 @@ const Fufy = () => {
     };
   }, [isActive]);
 
-  const handleActivate = () => {
-    setIsActive(true);
-    document.body.style.overflow = "hidden";
-    if (particlesRef.current.length > 0) {
-      particlesRef.current.forEach((p, i) => {
-        if (i % 5 === 0) p.reset();
-      });
+  const handlePointerDown = (e) => {
+    if (containerRef.current.contains(e.target)) {
+      setIsActive(true);
+      document.body.style.overflow = "hidden";
+    } else {
+      setIsActive(false);
+      setRotation({ x: 0, y: 0 });
+      document.body.style.overflow = "auto";
     }
   };
 
-  const handleDeactivate = () => {
-    setIsActive(false);
-    document.body.style.overflow = "auto";
-    setRotation({ x: 0, y: 0 });
-  };
+  const handlePointerMove = (e) => {
+    if (!isActive || !containerRef.current) return;
 
-  const handleMove = (e) => {
-    if (!containerRef.current) return;
-    
     const rect = containerRef.current.getBoundingClientRect();
     const x = e.clientX - rect.left;
     const y = e.clientY - rect.top;
     const centerX = rect.width / 2;
     const centerY = rect.height / 2;
-    
+
     const relX = x - centerX;
     const relY = y - centerY;
-    
+
     const rotateY = (relX / centerX) * 10;
     const rotateX = (relY / centerY) * -10;
-    
+
     setRotation({ x: rotateX, y: rotateY });
-
-    if (isActive && particlesRef.current.length > 0) {
-      particlesRef.current.forEach(p => {
-        const dist = Math.sqrt(Math.pow(p.x - x, 2) + Math.pow(p.y - y, 2));
-        if (dist < 100 && Math.random() > 0.8) {
-          p.phase += 0.05;
-        }
-      });
-    }
   };
 
-  const handleTouchMove = (e) => {
-    if (e.touches.length > 0) {
-      handleMove(e.touches[0]);
-    }
-  };
+  useEffect(() => {
+    const handleTouchStart = (e) => {
+      if (containerRef.current.contains(e.target)) {
+        setIsActive(true);
+        document.body.style.overflow = "hidden";
+      } else {
+        setIsActive(false);
+        setRotation({ x: 0, y: 0 });
+        document.body.style.overflow = "auto";
+      }
+    };
+
+    const handleTouchMove = (e) => {
+      if (!isActive || !containerRef.current) return;
+
+      const touch = e.touches[0];
+      const rect = containerRef.current.getBoundingClientRect();
+      const x = touch.clientX - rect.left;
+      const y = touch.clientY - rect.top;
+      const centerX = rect.width / 2;
+      const centerY = rect.height / 2;
+
+      const relX = x - centerX;
+      const relY = y - centerY;
+
+      const rotateY = (relX / centerX) * 10;
+      const rotateX = (relY / centerY) * -10;
+
+      setRotation({ x: rotateX, y: rotateY });
+    };
+
+    const handleTouchEnd = () => {
+      // Aqui você pode desligar o efeito ao soltar o toque, se quiser:
+      // setIsActive(false);
+      // setRotation({ x: 0, y: 0 });
+      // document.body.style.overflow = "auto";
+    };
+
+    document.addEventListener("pointerdown", handlePointerDown);
+    document.addEventListener("pointermove", handlePointerMove);
+    document.addEventListener("touchstart", handleTouchStart);
+    document.addEventListener("touchmove", handleTouchMove);
+    document.addEventListener("touchend", handleTouchEnd);
+
+    return () => {
+      document.removeEventListener("pointerdown", handlePointerDown);
+      document.removeEventListener("pointermove", handlePointerMove);
+      document.removeEventListener("touchstart", handleTouchStart);
+      document.removeEventListener("touchmove", handleTouchMove);
+      document.removeEventListener("touchend", handleTouchEnd);
+    };
+  }, [isActive]);
 
   return (
     <section id="fufy">
       <h2>Magic 3D World</h2>
-      <div 
+      <p>(Toque)</p>
+      <div
         ref={containerRef}
         className="component3d"
-        onMouseEnter={handleActivate}
-        onMouseLeave={handleDeactivate}
-        onMouseMove={handleMove}
-        onTouchStart={handleActivate}
-        onTouchEnd={handleDeactivate}
-        onTouchMove={handleTouchMove}
         style={{
           transform: `perspective(1000px) rotateX(${rotation.x}deg) rotateY(${rotation.y}deg)`,
           transition: isActive ? 'transform 0.1s ease-out' : 'transform 0.5s ease-out'
@@ -250,7 +272,7 @@ const Fufy = () => {
       >
         {imageUrls.slice(0, 7).map((url, index) => {
           let position, layerClass;
-          
+
           if (index < 3) {
             position = positions.background[index];
             layerClass = "layer background";
@@ -270,14 +292,14 @@ const Fufy = () => {
               className={`${layerClass} ${isActive ? "active" : ""}`}
               style={{
                 gridRow: position.row,
-                gridColumn: position.col,
+                gridColumn: position.col
               }}
             />
           );
         })}
-        <canvas 
-          ref={canvasRef} 
-          className="glitter-canvas" 
+        <canvas
+          ref={canvasRef}
+          className="glitter-canvas"
           style={{ opacity: isActive ? 1 : 0 }}
         />
       </div>
