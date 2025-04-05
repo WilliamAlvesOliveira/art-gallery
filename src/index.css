@@ -135,4 +135,9 @@ footer .redes{
     position: static;
     font-size: 0.5em;
   }
+
+  .redes > a{
+    padding: 1vw;
+    font-size: 4vw;
+  }
 }
